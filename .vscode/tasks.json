@@ -4,7 +4,7 @@
         {
             "label": "build",
             "command": "dotnet",
-            "type": "process",
+            "type": "shell",
             "args": [
                 "build",
                 "${workspaceFolder}/DotNetGuid.csproj"
@@ -15,7 +15,7 @@
         {
             "label": "pack",
             "command": "dotnet",
-            "type": "process",
+            "type": "shell",
             "args": [
                 "pack",
                 "${workspaceFolder}/DotNetGuid.csproj"
@@ -34,14 +34,14 @@
                 "--global",
                 "--add-source",
                 "${workspaceFolder}/nupkg",
-                "guid"
+                "DotNetGuid"
             ],
             "group": "build",
             "problemMatcher": []
         },
         {
             "label": "uninstall",
-            "command": "dotnet tool uninstall guid -g",
+            "command": "dotnet tool uninstall DotNetGuid -g",
             "type": "shell",
             "group": "build",
             "problemMatcher": []
