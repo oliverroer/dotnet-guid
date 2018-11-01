@@ -1,5 +1,5 @@
 # dotnet-guid
-A console tool that generates Globally Unique Identifiers (GUIDs).
+A .NET Core global tool that generates Globally Unique Identifiers (GUIDs).
 
 ## Usage
 
