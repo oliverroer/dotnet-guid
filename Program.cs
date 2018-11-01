@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using McMaster.Extensions.CommandLineUtils;
 
-namespace DotNetGuid
-{
+namespace DotNetGuid {
     [Command(
         Name = "guid",
         Description = "A console tool that generates Globally Unique Identifiers (GUIDs).",
@@ -34,8 +35,7 @@ Formats:
         {0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}
 "
     )]
-    public class Program
-    {
+    public class Program {
         public static int Main(string[] args)
             => CommandLineApplication.Execute<Program>(args);
 
@@ -45,27 +45,23 @@ Formats:
         [Option(Description = "The number of guids to generate.")]
         public int Number { get; } = 1;
 
-        private void OnExecute()
-        {
-            if (Number <= 0)
-            {
+        private void OnExecute() {
+            if (Number <= 0) {
                 Console.WriteLine("The number must be an integer greater than 0.");
                 return;
             }
 
-            for (var i = 0; i < Number; i++)
-            {
-                try
-                {
+            try {
+                IEnumerable<string> guids = Enumerable.Range(0, Number).Select(_ => {
                     Guid guid = Guid.NewGuid();
                     string formatted = guid.ToString(Format);
-                    Console.WriteLine(formatted);
-                }
-                catch (Exception exception)
-                {
-                    Console.WriteLine(exception.Message);
-                    return;
-                }
+                    return formatted;
+                });
+                string output = string.Join(Environment.NewLine, guids);
+                Console.Write(output);
+            } catch (Exception exception) {
+                Console.WriteLine(exception.Message);
+                return;
             }
         }
     }
