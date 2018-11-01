@@ -11,9 +11,9 @@ guid [options]
 
 | Option                 | Description                                  |
 | ---------------------- | -------------------------------------------- |
-| `-f|--format <FORMAT>` | The format specifier. See formats section.   |
-| `-n|--number <NUMBER>` | The number of guids to generate.             |
-| `-?|-h|--help`         | Show help information                        |
+| `-f\|--format <FORMAT>` | The format specifier. See formats section.   |
+| `-n\|--number <NUMBER>` | The number of guids to generate.             |
+| `-?\|-h\|--help`         | Show help information                        |
 
 ### Formats
 
