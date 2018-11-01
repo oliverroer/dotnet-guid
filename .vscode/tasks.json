@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/DotNetGuid.csproj"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "pack",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "pack",
+                "${workspaceFolder}/DotNetGuid.csproj"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "install",
+            "command": "dotnet",
+            "dependsOn": "pack",
+            "type": "shell",
+            "args": [
+                "tool",
+                "install",
+                "--global",
+                "--add-source",
+                "${workspaceFolder}/nupkg",
+                "guid"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "uninstall",
+            "command": "dotnet tool uninstall guid -g",
+            "type": "shell",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
