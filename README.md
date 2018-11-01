@@ -19,7 +19,7 @@ guid [options]
 
 The following table shows the accepted format specifiers for the format parameter.
   
-"0" represents a digit; hyphens ("-"), braces ("{", "}"), and parentheses ("(", ")") appear as shown.
+`0` represents a digit; hyphens `-`, braces `{`, `}`, and parentheses `(`, `)` appear as shown.
 
 | Format   | Description                                                                                                                                | Example                                                                   |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
